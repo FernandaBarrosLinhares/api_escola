@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user.controller');
-const { hasPermission } = require('../middleware/hasPermission');
+const { hasPermission } = require('./middleware/hasPermission');
 
 router.get('/', hasPermission(['ler_usuarios']), userController.findAll);
 router.get('/:id', hasPermission(['ler_usuarios']), userController.findById);
